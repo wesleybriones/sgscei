@@ -10,7 +10,7 @@ import * as yup from "yup";
 import banner from "../../assets/banner.jpg";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-const LoginPage = () => {
+export const LoginExterno = () => {
 
     const initialValues = {
         correo: "",
@@ -23,10 +23,7 @@ const LoginPage = () => {
             Correo: values.correo,
             ContrasenaHash: values.contrasena,
         })
-       
-       
     }
-
     
     const validationSchema = yup.object({
         correo: yup
@@ -38,9 +35,6 @@ const LoginPage = () => {
             .max(20)
             .required('Contraseña requerido'),
     });
-
-
-
 
 
     return (
@@ -131,7 +125,7 @@ const LoginPage = () => {
 
                                                         
                                                         
-                                                        <Typography sx={{ mt: 1, color: 'Denim' ,}} component={Link} to="/Registro" variant="subtitle2">
+                                                        <Typography sx={{ mt: 1, color: 'Denim' ,}} component={Link} to="/auth/register" variant="subtitle2">
                                                             Crear cuenta
                                                         </Typography>
                                                        
@@ -174,5 +168,3 @@ const LoginPage = () => {
         </>
     )
 }
-
-export default LoginPage;

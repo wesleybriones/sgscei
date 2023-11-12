@@ -15,7 +15,7 @@ import SnackbarComponent from "../../components/Snackbar";
 import { API_URL } from "../../Utils/Variables";
 
 
-const RegisterPage = () => {
+export const RegisterPage = () => {
 
     const [message, setMessage] = useState("");
     const [severity, setSeverity] = useState("");
@@ -114,7 +114,6 @@ const RegisterPage = () => {
 
 
     return (
-
         <>
             <Box sx={{
                 display: 'grid',
@@ -293,5 +292,3 @@ const RegisterPage = () => {
         </>
     )
 }
-
-export default RegisterPage;

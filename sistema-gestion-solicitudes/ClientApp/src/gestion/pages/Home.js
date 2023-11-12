@@ -1,9 +1,11 @@
-﻿import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import SideBar from "../components/SideMenu/SideBar";
-import Content from "../components/Header/Content";
-import '../Utils/custom.css';
-const Home = () => {
+﻿import { useState } from "react";
+
+import SideBar from "../../components/SideMenu/SideBar";
+import Content from "../../components/Header/Content";
+
+import '../../Utils/CustomStyles';
+
+export const Home = () => {
     const [sidebarIsOpen, setSidebarOpen] = useState(true);
     const toggleSidebar = () => setSidebarOpen(!sidebarIsOpen);
 
@@ -19,5 +21,3 @@ const Home = () => {
       
     );
 };
-
-export default Home;
