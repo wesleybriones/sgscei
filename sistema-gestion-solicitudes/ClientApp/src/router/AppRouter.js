@@ -5,7 +5,7 @@ import { GestionRoutes } from '../gestion/routes/GestionRoutes';
 
 export const AppRouter = () => {
 
-    const status = 'not-authenticated';
+    const status = 'authenticated';
 
       return (
 
@@ -18,10 +18,7 @@ export const AppRouter = () => {
             }
 
             <Route path='/*' element={ <Navigate to='/auth/welcome' />  } />
-            {/* <Route path="/welcome" element={<Welcome />} />
-              <Route path="/loginExt" element={<LoginExterno />} />
-              <Route path="/registro" element={<RegisterPage />} />
-              <Route path="/" element={<Home />} >
+            {/* 
                   <Route path="/Solicitudes" element={<ListaSolicitudes />} />
                   <Route path="/Solicitud/:id" element={<SolicitudControl />} />
                   <Route path="/Usuarios" element={<Usuario />} />

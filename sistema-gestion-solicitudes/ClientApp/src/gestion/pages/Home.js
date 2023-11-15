@@ -3,9 +3,10 @@
 import SideBar from "../../components/SideMenu/SideBar";
 import Content from "../../components/Header/Content";
 
-import '../../Utils/CustomStyles';
+import '../../Utils/custom.css';
 
 export const Home = () => {
+
     const [sidebarIsOpen, setSidebarOpen] = useState(true);
     const toggleSidebar = () => setSidebarOpen(!sidebarIsOpen);
 
