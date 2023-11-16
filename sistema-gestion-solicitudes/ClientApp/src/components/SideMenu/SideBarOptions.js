@@ -18,7 +18,7 @@ export const SidebarData = [
     {
         id: 2,
         titulo: 'Solicitudes',
-        path: '/Solicitudes',
+        path: '/solicitudes',
         icon: <FileCopyIcon sx={{ color: 'white' }} />
 
     },
@@ -26,35 +26,35 @@ export const SidebarData = [
     {
         id: 4,
         titulo: 'Usuarios',
-        path: '/Usuarios',
+        path: '/usuarios',
         icon: <GroupIcon sx={{ color: 'white' }} />
 
 
     }, {
         id: 5,
         titulo: 'Permisos',
-        path: '/Permisos',
+        path: '/permisos',
         icon: <LockPersonIcon sx={{ color: 'white' }} />
 
     },
     {
         id: 6,
         titulo: 'Roles',
-        path: '/Roles',
+        path: '/roles',
         icon: <BadgeIcon sx={{ color: 'white' }} />
 
     },
     {
         id: 7,
         titulo: 'Especialidades',
-        path: '/Especialidades',
+        path: '/especialidades',
         icon: <PsychologyIcon sx={{ color: 'white' }} />
 
     },
     {
         id: 8,
         titulo: 'Plazos de Solicitudes',
-        path: '/PlazosSolicitudes',
+        path: '/plazosSolicitudes',
         icon: <TimerIcon sx={{ color: 'white' }} />
 
     }

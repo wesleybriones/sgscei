@@ -15,8 +15,8 @@ namespace sistema_gestion_solicitudes.Controllers
         {
             this.DBContext = DBContext;
         }
-        [HttpGet]
 
+        [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsuarios()
         {
             var usuarios = await DBContext.Users
@@ -30,7 +30,6 @@ namespace sistema_gestion_solicitudes.Controllers
 
         [HttpGet]
         [Route("/api/RevisoresDisponibles")]
-
         public async Task<ActionResult<IEnumerable<User>>> GetRevisoresDisponibles()
         {
             var usuarios = await DBContext.Users.Where(s => s.Estado == true && s.Roles.Any(s => s.Nombre =="Miembro del Comité"))
@@ -101,11 +100,11 @@ namespace sistema_gestion_solicitudes.Controllers
                     Apellidos = usuario.Apellidos,
                     Cedula = usuario.Cedula,
                     Username = usuario.Username,
+                    ContrasenaHash = usuario.ContrasenaHash,
                     Correo = usuario.Correo,
                     Estado = usuario.Estado,
                     FechaCreacion = DateTime.Now
                 };
-
                 foreach (Especialidad esp in usuario.Especialidades)
                 {
                     var especialidad = DBContext.Especialidades.FirstOrDefault(e => e.Id == esp.Id);
@@ -113,7 +112,6 @@ namespace sistema_gestion_solicitudes.Controllers
                     {
                         if (especialidad != null)
                         {
-                            
                             user.Especialidades.Add(especialidad);
                             especialidad.Usuarios.Add(user);
                             
@@ -132,20 +130,44 @@ namespace sistema_gestion_solicitudes.Controllers
                            
                     }
                 }
-                
                 DBContext.Users.Add(user);
                 await DBContext.SaveChangesAsync();
-
-
                 return Ok();
-
             }
 
         }
 
 
+        /*[HttpPost]
+        [Route("/api/auth")]
+        public async Task<ActionResult<User>> LoginUser(string Username, string Pass)
+        {
+            if (DBContext.Users == null)
+            {
+                return NotFound();
+            }
+            var usuario = await DBContext.Users.Include()
+            return 
+        }*/
 
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<User>> DeleteUser(int id)
+        {
+            if (DBContext.Users == null)
+            {
+                return NotFound();
+            }
+            var usuario = await DBContext.Users
+                            .Include(e => e.Especialidades)
+                            .Include(e => e.Roles)
+                            .FirstOrDefaultAsync(s => s.Id == id);
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+
+            return usuario;
+        }
 
     }
 }
-

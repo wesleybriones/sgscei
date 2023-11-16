@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
 
 import { reportWebVitals } from './reportWebVitals';
 import { StyledEngineProvider } from '@mui/material/styles';
@@ -9,11 +8,9 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import { GestionApp } from './GestionApp';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <BrowserRouter>
-        <StyledEngineProvider injectFirst>
-            <GestionApp />
-        </StyledEngineProvider>
-    </BrowserRouter>
+    <StyledEngineProvider injectFirst>
+        <GestionApp />
+    </StyledEngineProvider>
 );
 
 // If you want your app to work offline and load faster, you can change
