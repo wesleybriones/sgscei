@@ -69,7 +69,7 @@ namespace sistema_gestion_solicitudes.Controllers
         [Route("/api/Register")]
         public async Task<IActionResult> PostUser(User usuario)
         {
-            if (!ModelState.IsValid || await DBContext.Users.AnyAsync(x => x.Correo  == usuario.Correo || x.Username == usuario.Username))
+            if (!ModelState.IsValid || await DBContext.Users.AnyAsync(x => x.Correo  == usuario.Correo || x.Username == usuario.Username || x.Cedula == usuario.Cedula))
             {
                 return BadRequest();
             }
